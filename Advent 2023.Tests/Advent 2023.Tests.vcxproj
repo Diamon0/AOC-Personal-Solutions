@@ -102,6 +102,9 @@
       <AdditionalLibraryDirectories>$(VCInstallDir)UnitTest\lib;C:\Users\Sebastian\Documents\Stuffs\C++ Stuff\Advent Of Code\Advent 2023\x64\Debug;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>Calibration.obj;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
+    <PreBuildEvent>
+      <Command>copy "$(ProjectDir)CDE.txt" "$(TargetDir)"</Command>
+    </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -156,6 +159,9 @@
       <AdditionalLibraryDirectories>$(VCInstallDir)UnitTest\lib;C:\Users\Sebastian\Documents\Stuffs\C++ Stuff\Advent Of Code\Advent 2023\x64\Debug;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>Calibration.obj;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
+    <PreBuildEvent>
+      <Command>copy "$(ProjectDir)CDE.txt" "$(TargetDir)"</Command>
+    </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Advent 2023.Tests.cpp" />
