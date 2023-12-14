@@ -4,16 +4,27 @@
 #include <fstream>
 #include <numeric>
 #include "Calibration.h"
+#include "CubeGame.h"
 
 int main() {
-	std::ifstream file = std::ifstream("CD.txt");
-	std::vector<uint32_t> calibrationValues = Calibration::findCalibrationValues(file);
+	std::ifstream file = std::ifstream("GLE.txt");
+	CubeGame::CubeGames cubeGame = CubeGame::CubeGames::initializeGames(file);
+	file.close();
 
-	//Commented out to keep the console clean, I don't plan to use the NDEBUG ifndef for this since I'm strictly using Debug mode
-	/*for (uint32_t value : calibrationValues) {
-		std::cout << "Calibration Value: " << value << std::endl;
-	}*/
+	uint8_t maxReds = 12;
+	uint8_t maxGreens = 13;
+	uint8_t maxBlues = 14;
 
-	int sum = std::accumulate(calibrationValues.begin(), calibrationValues.end(), 0);
-	std::cout << "Sum of Calibration Values: " << sum << std::endl;
+	std::vector<CubeGame::Game> foundGames = cubeGame.findGamesByLimitedCubes(maxReds, maxGreens, maxBlues);
+
+	int sum = 0;
+
+	std::cout << "Found " << foundGames.size() << " Games with a maximum of " << (int)maxReds << " Reds, " << (int)maxGreens << " Greens, and " << (int)maxBlues << " Blues" << std::endl;
+	std::cout << "The IDs are:";
+	for (CubeGame::Game& game : foundGames) {
+		std::cout << " " << game.id;
+		sum += game.id;
+	}
+	std::cout << std::endl;
+	std::cout << "The sum of all Game IDs is " << sum << std::endl;
 }
