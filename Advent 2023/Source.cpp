@@ -15,7 +15,7 @@ int main() {
 	uint8_t maxGreens = 13;
 	uint8_t maxBlues = 14;
 
-	std::vector<CubeGame::Game> foundGames = cubeGame.findGamesByLimitedCubes(maxReds, maxGreens, maxBlues);
+	std::vector<CubeGame::Game> foundGames = cubeGame.games;
 
 	int sum = 0;
 
@@ -23,7 +23,7 @@ int main() {
 	std::cout << "The IDs are:";
 	for (CubeGame::Game& game : foundGames) {
 		std::cout << " " << game.id;
-		sum += game.id;
+		sum += game.maxRedCount * game.maxGreenCount * game.maxBlueCount;
 	}
 	std::cout << std::endl;
 	std::cout << "The sum of all Game IDs is " << sum << std::endl;
