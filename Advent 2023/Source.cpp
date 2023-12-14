@@ -18,6 +18,5 @@ int main() {
 	for (CubeGame::Game& game : foundGames) {
 		sum += game.maxRedCount * game.maxGreenCount * game.maxBlueCount;
 	}
-	std::cout << std::endl;
 	std::cout << "The sum of every game's power is " << sum << std::endl;
 }
