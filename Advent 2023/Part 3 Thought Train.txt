@@ -1,0 +1,19 @@
+Coordinate Grid
+
+first pass:
+Store Line and Range for the surrounding coordinates when you find a symbol
+
+second pass:
+store the found numbers, maybe in a hashmap to prevent duplicates
+
+
+ALTERNATIVE:
+Create the coordinate grid instead of treating it as one
+
+
+ALTERNATIVE:
+The string kind of already is a grid if you think about it hard enough
+
+
+WILD THOUGHT:
+Tic Tac Toe anyone?
